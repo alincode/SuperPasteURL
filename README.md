@@ -2,6 +2,8 @@
 
 SuperPasteURL is a simple extension that generating Markdown style link when pasting URL.
 
+![](usage.gif)
+
 ## Features
 
 A Markdown or reStructuredText inline-style link will be generated when pasting a URL into the file with corresponding active language.
@@ -49,15 +51,19 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 Users appreciate release notes as you update your extension.
 
-### 1.0.0
+### 0.0.1
 
 generating Markdown style link
 
-<!-- ### 1.0.1 -->
-<!-- Fixed issue #. -->
+### 0.0.2
+
+Fixed bug
+
+### 0.0.3
+
+improve readme
 
 ### For more information
 
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
