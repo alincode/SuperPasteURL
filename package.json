@@ -2,7 +2,7 @@
     "name": "SuperPasteURL",
     "displayName": "SuperPasteURL",
     "description": "Paste URL in Markdown format",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "alincode",
     "author": "alincode <alincode@gmail.com>",
     "license": "MIT",
