@@ -35,6 +35,12 @@ You can change the default shortcut to whatever you like by editing the `Code > 
 ]
 ```
 
+### release plugin
+
+```
+vsce package
+```
+
 ## Known Issues
 
 Calling out known issues can help limit users opening duplicate issues against your extension.
