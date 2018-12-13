@@ -1,31 +1,38 @@
-# AwesomePasteURL README
+# SuperPasteURL README
 
-This is the README for your extension "AwesomePasteURL". After writing up a brief description, we recommend including the following sections.
+SuperPasteURL is a simple extension that generating Markdown style link when pasting URL.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+A Markdown or reStructuredText inline-style link will be generated when pasting a URL into the file with corresponding active language.
 
-For example if there is an image subfolder under your extension project workspace:
+For example, you copied the below URL:
 
-\!\[feature X\]\(images/feature-x.png\)
+```
+https://code.visualstudio.com
+```
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+When pasting with Paste URL, you will get:
 
-## Requirements
+```
+[Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com)
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Usage
+For Ubuntu Linux make sure that xclip package is installed, see http://github.com/xavi-/node-copy-paste for details.
 
-## Extension Settings
+* Hit "Control + Alt + P" (Recommended)
+* Hit "Command + Shift + P" and then type Paste URL and hit enter.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Selection will be used as the title if possible.
 
-For example:
+You can change the default shortcut to whatever you like by editing the `Code > Preferences > Keyboard Shortcuts (File > Preferences > Keyboard Shortcuts` on Windows):
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+```
+[
+    {"key": "ctrl+alt+p", "command": "extension.pasteURL"}
+]
+```
 
 ## Known Issues
 
@@ -37,29 +44,13 @@ Users appreciate release notes as you update your extension.
 
 ### 1.0.0
 
-Initial release of ...
+generating Markdown style link
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+<!-- ### 1.0.1 -->
+<!--  -->
+<!-- Fixed issue #. -->
 
 ### For more information
 
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**

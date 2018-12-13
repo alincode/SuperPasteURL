@@ -14,20 +14,19 @@ const assert = require('assert');
 const myExtension = require('../extension');
 
 // Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", function() {
+suite('Extension Tests', function () {
+    
+    test('get google title', async () => {
+        let url = 'https://www.google.com.tw/';
+        var paster = new myExtension.Paster();
+        var actualTitle = await paster.getYoutubeTitle(url);
+        assert.equal(actualTitle, 'How to Talk Like a Native Speaker | Marc Green | TEDxHeidelberg - YouTube');
+    });
 
-    test("Get title from undefined", () => {
-        var paster = new myExtension.Paster()
-        var URL = "https://google.com"
-        var title = paster.processTitle(undefined, URL)
-        assert.equal(title, URL)
-    })
-
-    test("Get title normally", () => {
-        var paster = new myExtension.Paster()
-        var URL = "https://google.com"
-        var title = "Google"
-        var titleProcessed = paster.processTitle(title, URL)
-        assert.equal(title, titleProcessed)
-    })
+    test('get youtube title', async () => {
+        let url = 'https://www.youtube.com/watch?v=Ti_gFEe1XNY';
+        var paster = new myExtension.Paster();
+        var actualTitle = await paster.getYoutubeTitle(url);
+        assert.equal(actualTitle, 'How to Talk Like a Native Speaker | Marc Green | TEDxHeidelberg - YouTube');
+    });
 });
