@@ -21,8 +21,9 @@ When pasting with Paste URL, you will get:
 ### Usage
 For Ubuntu Linux make sure that xclip package is installed, see http://github.com/xavi-/node-copy-paste for details.
 
-* Hit "Control + Alt + P" (Recommended)
-* Hit "Command + Shift + P" and then type Paste URL and hit enter.
+```
+Hit "Control + Alt + P"
+```
 
 Selection will be used as the title if possible.
 
@@ -30,7 +31,7 @@ You can change the default shortcut to whatever you like by editing the `Code > 
 
 ```
 [
-    {"key": "ctrl+alt+p", "command": "extension.pasteURL"}
+    {"key": "ctrl+alt+p", "command": "extension.SuperPasteURL"}
 ]
 ```
 
@@ -47,7 +48,6 @@ Users appreciate release notes as you update your extension.
 generating Markdown style link
 
 <!-- ### 1.0.1 -->
-<!--  -->
 <!-- Fixed issue #. -->
 
 ### For more information
