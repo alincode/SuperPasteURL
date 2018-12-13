@@ -1,13 +1,10 @@
 const vscode = require('vscode');
 const copyPaste = require('copy-paste');
-const getTitle = require('get-title');
-const hyperquest = require('hyperquest');
+const getTitleAtUrl = require('get-title-at-url');
 const request = require('request-promise');
-
 let { Position, Range } = vscode;
 
 function activate(context) {
-    // vscode.workspace.onDidChangeConfiguration(e => hyperquest);
     let paster = new Paster();
     let disposable = vscode.commands.registerCommand('extension.SuperPasteURL', async () => {
         await paster.paste();
@@ -24,7 +21,6 @@ exports.deactivate = deactivate;
 const Paster = class Paster {
 
     constructor() {
-        this.baseRequest = hyperquest;
         this._statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
     }
 
@@ -65,30 +61,32 @@ const Paster = class Paster {
     getLinkFormatter(text, url) {
         return '[' + text + ']' + '(' + url + ')';
     }
+
+    getTitleAtUrl(url) {
+        return new Promise(function (resolve, reject) {
+            getTitleAtUrl(url, function (title, err) {
+                if (err) return reject(err);
+                resolve(title);
+            });
+        });
+    }
     
     async composeTitleAndSelection(url) {
-        var _this = this;
-        var headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Safari/604.1.38'
-        };
         if (!url.startsWith('http')) url = 'http://' + url;
         var fakeTitle = this.getFakeTitle();
-        var formattedLink = this.getLinkFormatter(fakeTitle, url);
+        var fakeLink = this.getLinkFormatter(fakeTitle, url);
 
         // Editing is done async, so we need to make sure previous editing is finished
-        await _this.writeToEditor(formattedLink);
-
-        const stream = this.baseRequest(url, { headers: headers }, function (err, response) {
-            if (err) _this.replaceWith(fakeTitle, 'Error Happened');
-        });
+        await this.writeToEditor(fakeLink);
 
         let newTitle;
         if (url.indexOf('youtube') != -1) {
             newTitle = await this.getYoutubeTitle(url);
         } else {
-            newTitle = await getTitle(stream);
+            newTitle = await this.getTitleAtUrl(url);
         }
         newTitle = this.formatTitle(newTitle, url);
+
         this.replaceWith(fakeTitle, newTitle);
     }
 
