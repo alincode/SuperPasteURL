@@ -80,3 +80,5 @@ typings/
 
 .vscode-test/
 package-lock.json
+
+*.vsix
