@@ -79,3 +79,4 @@ typings/
 .dynamodb/
 
 .vscode-test/
+package-lock.json
