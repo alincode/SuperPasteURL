@@ -6,7 +6,7 @@ SuperPasteURL is a simple extension that generating Markdown style link when pas
 
 ## Features
 
-A Markdown or reStructuredText inline-style link will be generated when pasting a URL into the file with corresponding active language.
+A Markdown inline-style link will be generated when pasting a URL into the file with corresponding active language.
 
 For example, you copied the below URL:
 
